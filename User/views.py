@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Destinations,Profile
+from rest_framework.viewsets import  ViewSet,ModelViewSet
 
 # Create your views here.
 
@@ -35,4 +36,8 @@ def EditProfile(request):
 def UserProfileDetails(request):
     userProfiles = Profile.objects.all()
     return render(request,'User/UserProfileList.html' {'userProfiles': userProfiles})
-    
+
+
+class ProfileViewSet(ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
