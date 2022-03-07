@@ -39,5 +39,5 @@ def UserProfileDetails(request):
 
 
 class ProfileViewSet(ModelViewSet):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
