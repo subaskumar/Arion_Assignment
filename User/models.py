@@ -32,4 +32,3 @@ class UserAddress(models.Model):
     address2 = models.CharField(max_length=50)
     address3 = models.CharField(max_length=50)
     pincode = models.CharField(max_length=50)
- 

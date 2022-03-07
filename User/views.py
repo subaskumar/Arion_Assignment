@@ -33,5 +33,6 @@ def EditProfile(request):
     return render(request, 'User/profile.html', {'form': profile_form,'message': message})
 
 def UserProfileDetails(request):
-    return
+    userProfiles = Profile.objects.all()
+    return render(request,'User/UserProfileList.html' {'userProfiles': userProfiles})
     
