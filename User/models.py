@@ -11,14 +11,13 @@ class Destinations(models.Model):
     description = models.CharField(max_length=50)
     
     def __str__(self):
-        return self.city
+        return self.name
   
 class Profile(modes.Model):
     gender_choice = (
         ('Male', 'Male')
         ('Female', 'Female')
         ('Others', 'Others')
-
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     Name = models.CharField(max_length=50)
@@ -26,9 +25,15 @@ class Profile(modes.Model):
     gender = models.CharField(max_length=50, choices = gender_choice, default='Male')
     phone = models.CharField(max_length=50)
     
+    def __str__(self):
+        return self.Name
+    
 class UserAddress(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     address1 = models.CharField(max_length=50)
     address2 = models.CharField(max_length=50)
     address3 = models.CharField(max_length=50)
     pincode = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.owner
